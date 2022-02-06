@@ -1,0 +1,10 @@
+sudo: require
+language: generic
+services:
+  - docker
+
+before_install:
+  - docker build -t shaik-gousa-khaja-asif/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true shaik-gousa-khaja-asif/docker-react npm run test
